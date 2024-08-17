@@ -1,0 +1,19 @@
+.auth-message {
+  &__heading {
+  }
+  &__text {
+    font-size: 2rem;
+  }
+  &__link {
+    &,
+    &:active,
+    &:visited {
+      font-size: 1.7rem;
+      text-decoration: none;
+      display: inline-block;
+      margin-left: 0.4rem;
+
+      color: var(--color-primary-dark-1);
+    }
+  }
+}

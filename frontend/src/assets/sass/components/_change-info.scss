@@ -1,0 +1,12 @@
+.change-info {
+  width: 40%;
+  padding: 8rem 0;
+
+  &:not(:last-child) {
+    margin-bottom: 8rem;
+    border-bottom: 1px solid var(--color-grey-light-4);
+  }
+  @media only screen and (max-width: $bp-medium) {
+    width: 80%;
+  }
+}

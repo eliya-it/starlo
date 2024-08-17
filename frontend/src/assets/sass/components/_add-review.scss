@@ -1,0 +1,12 @@
+.add-review {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  background-color: var(--color-grey-light-1);
+  padding: 2.2rem 0;
+  &__form {
+    max-width: 50rem;
+    margin: 0 auto;
+    gap: 0;
+  }
+}

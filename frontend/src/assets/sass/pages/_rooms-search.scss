@@ -1,0 +1,14 @@
+.rooms-search {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__result {
+    font-size: 2rem;
+  }
+}
+.section--search {
+  padding: 12rem 0;
+}

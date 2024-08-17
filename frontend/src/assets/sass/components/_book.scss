@@ -1,0 +1,65 @@
+.book {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  box-shadow: 0 2rem 4rem rgba(#000, 0.05);
+  border-radius: var(--radius);
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-columns: 1fr;
+  }
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+  }
+  &__text {
+    padding: 3.2rem;
+    @include flexCol;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    position: relative;
+  }
+  &__price {
+    color: var(--color-primary);
+
+    font-size: 2rem;
+    font-weight: var(--font-weight-4);
+  }
+  &__icon {
+    position: absolute;
+    &::before,
+    &::after {
+      width: 1.4rem;
+      height: 0.2rem;
+      background-color: currentColor;
+      top: 0;
+    }
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+    }
+    &::before {
+      transform: rotate(45deg);
+      left: 0;
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+  &__close {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    right: 10%;
+    transition: var(--transition-primary);
+    color: var(--color-grey-dark-3);
+
+    &:hover {
+      color: var(--color-warn);
+    }
+  }
+}

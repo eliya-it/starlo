@@ -1,0 +1,22 @@
+.pagination {
+  background: #fff;
+  @include flexCenter;
+  justify-content: center;
+  padding: 3.2rem 0;
+  gap: 2rem;
+  &__btn {
+    padding: 1.2rem;
+    background-color: var(--color-primary);
+    width: 6.2rem;
+    height: 6.2rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    &:disabled {
+      background-color: var(--color-primary-light-4);
+    }
+    &__icon {
+      color: #fff;
+    }
+  }
+}

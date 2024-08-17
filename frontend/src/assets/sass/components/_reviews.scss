@@ -1,0 +1,42 @@
+.reviews {
+  @include flexCol;
+  align-items: flex-start;
+  &__review {
+    padding: 1.2rem;
+    display: flex;
+    width: 100%;
+    gap: 1.2rem;
+    align-items: center;
+
+    &:nth-child(odd) {
+      background-color: var(--color-primary-light-4);
+    }
+    &:nth-child(even) {
+      background-color: var(--color-primary-light-1);
+    }
+    &__stars {
+      margin-left: auto;
+      &__star {
+        font-size: 2rem;
+        &--fill {
+          color: #ffd700;
+        }
+        &--empty {
+          color: var(--color-grey-dark-2);
+        }
+      }
+    }
+    &__name {
+      font-size: 1.4rem;
+      color: var(--color-grey-light-2);
+    }
+    &__text {
+      font-size: 1.8rem;
+      color: var(--color-grey-light-1);
+    }
+    &__photo {
+      height: 5.2rem;
+      border-radius: 50%;
+    }
+  }
+}

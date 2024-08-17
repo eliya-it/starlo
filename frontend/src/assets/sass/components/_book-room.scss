@@ -1,0 +1,30 @@
+.book-room {
+  height: 22rem;
+  border-radius: var(--radius);
+  background-color: var(--color-primary-dark-3);
+  box-shadow: 0 2rem 4rem rgba(#000, 0.05);
+  @media only screen and (max-width: $bp-medium) {
+    height: 100%;
+  }
+  &__text {
+    padding: 3.2rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 4rem;
+    align-items: center;
+    justify-content: center;
+    @media only screen and (max-width: $bp-medium) {
+      grid-template-columns: 1fr;
+      row-gap: 3.2rem;
+    }
+  }
+  &__heading {
+    grid-column: 1 /-1;
+    font-size: 3.4rem;
+  }
+  &__paragraph {
+    color: var(--color-primary-light-5);
+    font-weight: var(--font-weight-2);
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,17 @@
+.stars {
+  @include flexCenter;
+  justify-content: center;
+  margin-top: 4.2rem;
+  gap: 1rem;
+  &__star {
+    font-size: 4rem;
+    cursor: pointer;
+    transition: 250ms ease;
+    &--fill {
+      color: #ffd700;
+    }
+    &--empty {
+      color: var(--color-grey-dark-2);
+    }
+  }
+}

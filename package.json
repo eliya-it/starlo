@@ -1,0 +1,30 @@
+{
+  "name": "run-script",
+  "version": "1.0.0",
+  "description": "This is a run script for both frontend and backend",
+  "main": "index.js",
+  "scripts": {
+    "run:frontend": "cd frontend && npm run dev",
+    "run:sass": "cd frontend && npm run watch:sass",
+    "run:backend": "cd backend &&  npm run start:dev",
+    "start": "npm-run-all  --parallel  run:frontend run:backend run:sass",
+    "prepare": "husky install",
+    "lint": "eslint . --fix"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "author": "Eliya",
+  "license": "ISC",
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^9.5.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7"
+  }
+}

@@ -1,0 +1,22 @@
+.scroll-top {
+  position: relative;
+
+  z-index: 20;
+  position: absolute;
+  top: 95%;
+  right: 5rem;
+  svg {
+    height: 3.5rem;
+    width: 3.5rem;
+    fill: var(--color-white);
+  }
+  &__btn {
+    position: fixed;
+
+    padding: 0.5rem;
+    border: none;
+    background: var(--color-primary);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+}

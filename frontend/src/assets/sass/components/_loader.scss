@@ -1,0 +1,41 @@
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &--full {
+    position: fixed;
+    top: 0;
+    z-index: 10000000;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-white);
+  }
+  &__load {
+    height: 4rem;
+    width: 0.4rem;
+    background-color: var(--color-primary);
+    animation: loader 0.45s cubic-bezier(1, 0, 0, 1) infinite;
+  }
+  &--inline {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid var(--color-primary-dark-2);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    animation: rotation 1s linear infinite;
+  }
+  &--fetch {
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
