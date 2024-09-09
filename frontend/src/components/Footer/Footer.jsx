@@ -65,17 +65,17 @@ const Footer = (props) => {
           </div>
         </div>
         <p className="footer__copyright">
-          This project was built by{" "}
-          <a className="" href="https://twitter.com/markov_dev" target="_blank" rel="noreferrer">
-            Markov
+          This project was developed by
+          <a
+            className=""
+            href="https://x.com/eliya_it"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <strong> Eliya </strong>
           </a>
-          <span>
-            {" "}
-            for his{" "}
-            <a className="link" href="https://markovdev.com/" target="_blank" rel="noreferrer">
-              Portfolio
-            </a>
-          </span>
+          as part of his portfolio. <br />
+          &copy; All rights reserved.
         </p>
       </Container>
     </footer>

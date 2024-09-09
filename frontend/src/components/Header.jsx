@@ -16,7 +16,7 @@ const Header = () => {
         <Animate>
           <a
             className="btn btn--primary"
-            href="https://github.com/markovdev/starlo-api#starlo"
+            href="https://github.com/eliya_it/starlo/backend#starlo"
             rel="noreferrer"
             target="_blank"
           >
