@@ -1,8 +1,6 @@
 const AppError = require("../utils/appError");
 const handleDublicatedFieldsDB = (req, res, err) => {
   const value = err.message.match(/(["'])(\\?.)*?\1/)[0];
-  console.log(value.includes("@"));
-
   let message;
   if (value.includes("@")) {
     message = `There is already a user with ${value}.`;
@@ -14,13 +12,7 @@ const handleDublicatedFieldsDB = (req, res, err) => {
   message = `Duplicate field value: ${value}. Please use another value!`;
   return new AppError(message, 400);
 };
-const handleIncorrectCreds = (err, req, res) => {
-  if (!req.originalUrl.startsWith("/api")) {
-    res.status(400).render("home/login", {
-      errMsg: "Incorrect email or password",
-    });
-  }
-};
+
 const handleValidationErrorDB = (err) => {
   const errors = Object.values(err.errors).map((el) => el.message);
 

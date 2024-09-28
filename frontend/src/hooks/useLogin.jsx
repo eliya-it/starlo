@@ -16,10 +16,7 @@ const useLogin = () => {
     axios
       .post("/users/login", { email, password })
       .then((resBody) => {
-        console.log(resBody.data);
-
         const { token, name, photo, role, expiresIn } = resBody.data;
-        console.log(expiresIn);
 
         setUser({
           name,

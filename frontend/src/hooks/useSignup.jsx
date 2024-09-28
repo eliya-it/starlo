@@ -18,9 +18,8 @@ const useSignup = () => {
         password,
         confirmPassword,
       });
-      const expiresIn = new Date(new Date().getTime() + 2000);
 
-      const { photo, token, role } = res.data;
+      const { photo, token, role, expiresIn } = res.data;
       setNewUser({
         name,
         photo,
@@ -33,8 +32,6 @@ const useSignup = () => {
       );
       navigate("/");
     } catch (err) {
-      console.log(err?.response?.data.message);
-
       dispatch(signFail(err?.response?.data.message));
     }
   };

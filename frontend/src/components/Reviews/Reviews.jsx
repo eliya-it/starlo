@@ -23,13 +23,13 @@ const Reviews = ({ roomID }) => {
         {isLoading && <Loader isFetch />}
         {!isLoading && data?.data.length > 0 ? (
           <div className="reviews">
-            {data?.data.map((review, i) => (
+            {data?.data?.map((review, i) => (
               <Review
                 key={review._id}
-                photo={review.user.photo}
-                name={review.user.name}
-                review={review.review}
-                rating={review.rating}
+                photo={review?.user?.photo}
+                name={review?.user?.name}
+                review={review?.review}
+                rating={review?.rating}
                 id={i}
               />
             ))}

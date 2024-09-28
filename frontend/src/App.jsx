@@ -51,8 +51,6 @@ function App() {
     if (user?.token && user.expiresIn) {
       const remainingTime =
         new Date(user.expiresIn).getTime() - new Date().getTime();
-      console.log(remainingTime);
-
       logoutTimer = setTimeout(logout, remainingTime);
     } else {
       clearTimeout(logoutTimer);

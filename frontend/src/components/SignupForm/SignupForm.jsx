@@ -12,8 +12,6 @@ const SignupForm = () => {
   const { token, error, signupError, loading } = useSelector(
     (state) => state.auth
   );
-  console.log(error, signupError);
-
   const { handler, password, confirmPassword, isDisabled } =
     useValidatePasswords();
   const { signup } = useSignup();

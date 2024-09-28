@@ -14,7 +14,6 @@ const Booking = ({ roomID, name }) => {
     sendRequest(`/users/${roomId}/booking`, "POST", true);
   };
   const { user } = useSelector((state) => state.auth);
-  console.log(error);
   return (
     <Section className="section--no-border">
       {" "}
