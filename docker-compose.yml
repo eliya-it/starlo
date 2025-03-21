@@ -1,0 +1,123 @@
+version: "3.8"
+
+services:
+  # Backend services
+  starlo_backend1:
+    container_name: starlo_backend1
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - SERVER_NAME=starlo_backend1
+    env_file:
+      - backend/config.env
+    networks:
+      - starlo-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/healthcheck"]
+      interval: 30s
+      retries: 3
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.backend.loadbalancer.server.port=3000"
+      - "traefik.http.routers.backend.rule=Host(`localhost`) && PathPrefix(`/api`)"
+
+  starlo_backend2:
+    container_name: starlo_backend2
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - SERVER_NAME=starlo_backend2
+    env_file:
+      - backend/config.env
+    networks:
+      - starlo-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/healthcheck"]
+      interval: 30s
+      retries: 3
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.backend.loadbalancer.server.port=3000"
+      - "traefik.http.routers.backend.rule=Host(`localhost`) && PathPrefix(`/api`)"
+
+  starlo_backend3:
+    container_name: starlo_backend3
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - SERVER_NAME=starlo_backend3
+    env_file:
+      - backend/config.env
+    networks:
+      - starlo-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/healthcheck"]
+      interval: 30s
+      retries: 3
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.backend.loadbalancer.server.port=3000"
+      - "traefik.http.routers.backend.rule=Host(`localhost`) && PathPrefix(`/api`)"
+
+  # Database
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    command: ["--noauth"]
+    networks:
+      - starlo-network
+
+  redis:
+    image: redis:latest
+    container_name: starlo_redis
+    restart: always
+    networks:
+      - starlo-network
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # Traefik (Load Balancer)
+  traefik:
+    image: "traefik:v2.10"
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+      - "--providers.docker.exposedbydefault=false"
+    ports:
+      - "80:80"
+      - "8080:8080" # Traefik Dashboard
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - starlo-network
+
+  # Frontend (Optional)
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - REACT_APP_API_URL=http://localhost
+  #   networks:
+  #     - starlo-network
+
+volumes:
+  mongo_data:
+  redis_data:
+
+networks:
+  starlo-network:
+    external: true
